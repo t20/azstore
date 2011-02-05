@@ -1,0 +1,10 @@
+<?php
+
+echo '<br/>//Azstore Settings File<br/><br/>';
+
+echo "define ('DB_HOST', '$host');" . '<br/><br/>';
+echo "define ('DATABASE', '$database');" . '<br/><br/>';
+echo "define ('DB_USER', '$database_username');" . '<br/><br/>';
+echo "define ('DB_PASSWORD','$database_password');" . '<br/><br/>';
+
+?>

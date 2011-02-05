@@ -1,0 +1,23 @@
+# htaccess For azstore
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteBase /local/azstore/
+
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-l
+
+
+#RewriteRule /([a-zA-Z0-9-]+) index.php?scrap=$1 [L]
+#RewriteRule ^page/([^/\.]+)$ index.php?scrap=$1 [L]
+
+#RewriteRule ^([^/\.]+)$ index.php?scrap=$2 [L]
+
+#RewriteRule ^products/(0-9+)$ includes/get.php?scrap=$1 [L]
+ 
+#RewriteRule ^page.php/([a-zA-z0-9-]+)$ page.php?scrap=$1
+
+RewriteRule ^products/([0-9]+)$ http://localhost/~barath/local/azstore/page.php?scrap=$1 [L]
+
+#http://localhost/~barath/local/azstore/
