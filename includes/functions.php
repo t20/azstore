@@ -85,4 +85,18 @@ function get_pages()
     return $pages;
 }
 
+function get_settings()
+{
+    require_once 'database.php';
+    $select_settings_query = "select setting,value from settings where setting in ('sitename', 'tagline','username')";
+    $result = db_query($select_settings_query);
+    $settings = array();
+    while($row = mysql_fetch_assoc($result))
+    {
+        $setting = $row['setting'];
+        $settings[$setting] = $row['value'];
+    }
+    return $settings;
+}
+
 ?>

@@ -3,3 +3,18 @@
     margin: 0 auto;
 }
 
+.menu li {
+    list-style:none;
+    display:inline;
+    padding-right:20px;
+}
+
+#sitename {
+    font-size:20px;
+    margin:20px 0;
+}
+
+#tagline {
+    font-size:16px;
+    margin:10px;
+}
