@@ -1,3 +1,4 @@
+<?php  include 'admin_header.php'; ?>
 <?php
 //5 November 2010
 // Bharadwaj

@@ -11,3 +11,11 @@
 </head>
 <body>
 <div id="wrapper">
+    <div id="admin_level1">
+        <div id="admin_site_name">
+            <?php $settings = get_settings(); ?>
+            <div id="sitename">Admin Section - <?php echo $settings['sitename']; ?> </div>
+        </div>
+        <div id="admin_logout"><a href = "/logout.php">Logout</a></div>
+        <div class="clear"></div>
+    </div>

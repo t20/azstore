@@ -1,11 +1,7 @@
+<?php  include 'admin_header.php'; ?>
 <?php
 // 3 Nov 2010
 // Bharadwaj
-
-include '../settings/config.php';
-include '../includes/database.php';
-include '../includes/models/models.php';
-include '../includes/functions.php';    
 
 $message = array();
 foreach($_GET as $key => $value) 

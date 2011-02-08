@@ -1,4 +1,5 @@
 <form action="add_products.php" method="get" accept-charset="utf-8">
+    <h3>Add Products to Page</h3>
     <div id="products_list">
         <input type="hidden" name="add_type" value="1" id="some_name">    
         <label for="keyword">Keyword </label><input type="text" name="keyword" value="" id="keyword">

@@ -1,3 +1,4 @@
+<?php  include 'admin_header.php'; ?>
 <?php
 
 echo '<hr/>';
@@ -7,8 +8,6 @@ echo '<hr/>';
 // The cloest ones that look promising are redbeanphp, pork db and idiorm.
 // AS of now, I continue working on this project without a ORM layer.
 
-include '../includes/database.php';
-include '../includes/models/models.php';
 
 $adsets_query = db_query("SELECT * FROM adsets");
 $adsets = null;
@@ -24,3 +23,5 @@ while($adset = db_fetch_array($adsets_query)) {
 include 'views/adsets.php';
 
 ?>
+
+<?php include 'admin_footer.php'; ?>

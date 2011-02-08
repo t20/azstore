@@ -38,6 +38,8 @@ function duplicate_adset ($adset)
     
 }
 
+// get_product_details
+// Calls amazon cloudfusion to get product details
 function get_product_details($asin)
 {
     require_once 'cloudfusion/cloudfusion.class.php';
@@ -99,4 +101,19 @@ function get_settings()
     return $settings;
 }
 
+// get_products
+// Get products from database
+function get_products($page_id, $limit=10)
+{
+    $select_asins_query = "select * from associations where pageid = '$page_id' limit $limit";
+    $asins_query_result = db_query($select_asins_query) or die("Query Failed:" . mysql_error());
+    $products = array();
+    while($tmp_asin = db_fetch_array($asins_query_result)) 
+    {
+        $asin = $tmp_asin['asin'];
+        $product = get_product_details($asin);
+        $products[] = $product;
+    }
+    return $products;
+}
 ?>

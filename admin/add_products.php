@@ -1,9 +1,8 @@
+<?php  include 'admin_header.php'; ?>
 <?php
 
 // Author : Bharadwaj
 // Date : 16 Sep 2010
-
-include '../includes/functions.php';
 
 $products = null;
 

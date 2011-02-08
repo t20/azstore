@@ -1,0 +1,50 @@
+body{
+    padding:0;
+    margin:0;
+}
+
+.clear {
+    clear:both;
+}
+
+a img{
+    border:none;
+}
+
+#wrapper {
+    width:960px;
+    margin: 0 auto;
+}
+
+#sitename {
+    font-size:20px;
+    margin:20px 0;
+}
+
+#admin_site_name {
+    float:left;
+    width:750px;
+}
+
+#admin_logout {
+    float:right;
+    width:100px;
+}
+.apage div {
+    float:left;
+}
+.apage .page_id {
+    width:40px;
+}
+.apage .page_name {
+    width:300px;
+}
+.apage .page_action{
+    margin-right:20px;
+}
+
+.adminform label {
+    width:200px;
+    display:block;
+    margin:10px 0 5px 0;
+}

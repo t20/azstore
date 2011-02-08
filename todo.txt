@@ -2,3 +2,8 @@
 #Themes
 #Mod rewrite
 #Install Script
+
+// to do 
+// I have looked at multiple PHP ORM libraries that will help simplify this process.
+// The cloest ones that look promising are redbeanphp, pork db and idiorm.
+// AS of now, I continue working on this project without a ORM layer.
