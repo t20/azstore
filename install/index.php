@@ -5,7 +5,7 @@
 
 require_once ('../includes/functions.php');
 
-define('SETTINGS_FILE', '../settings/config2.php');
+define('SETTINGS_FILE', '../settings/config.php');
 define('SETTINGS_TEMPLATE', 'settings.tpl');
 
 foreach($_POST as $key => $value) 
@@ -51,15 +51,22 @@ if (isset($data['submit']))
         $connected = false;
     }
     
-    if (is_writable(SETTINGS_FILE))
+    if (file_exists(SETTINGS_FILE))
     {
-        $writable = true;
+       if (is_writable(SETTINGS_FILE))
+        {
+            $writable = true;
+        }else
+        {
+            $writable = false;
+            $error[] = 'File not writable : /settings/config.php';
+        }
     }else
     {
+        $error[] = 'Config file /settings/config.php does not exist. Please create the file and copy the contents from below.';
         $writable = false;
-        $error[] = 'File not writable : /settings/config.php';
     }
-    
+
     if ($connected == true)
     {
         // Connected to the DB. Create template File
@@ -79,6 +86,7 @@ if (isset($data['submit']))
                 $error[] = 'Could not write to file';
             }else
             {
+                $settings_stored = true;
                 $message[] = 'Settings saved to the config file.';
                 $modchanged = @chmod(SETTINGS_FILE, 0444);
                 if ($modchanged)
