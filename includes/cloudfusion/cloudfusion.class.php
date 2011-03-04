@@ -47,7 +47,7 @@ define('CLOUDFUSION_VERSION', '2.5');
  * Constant: CLOUDFUSION_BUILD
  * Build ID of the software.
  */
-define('CLOUDFUSION_BUILD', gmdate('YmdHis', strtotime(substr('$Date$', 7, 25)) ? strtotime(substr('$Date$', 7, 25)) : filemtime(__FILE__)));
+#define('CLOUDFUSION_BUILD', gmdate('YmdHis', strtotime(substr('$Date$', 7, 25)) ? strtotime(substr('$Date$', 7, 25)) : filemtime(__FILE__)));
 
 /**
  * Constant: CLOUDFUSION_URL

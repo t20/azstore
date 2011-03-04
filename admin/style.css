@@ -11,12 +11,16 @@ a img{
     border:none;
 }
 
-#wrapper {
-    width:960px;
-    margin: 0 auto;
+ul {
+   margin:0px;padding:0px;
 }
 
-#sitename {
+#wrapper {
+    width:960px;
+    margin: 10px auto;
+}
+
+#admin_site_name #sitename {
     font-size:20px;
     margin:20px 0;
 }
@@ -30,6 +34,13 @@ a img{
     float:right;
     width:100px;
 }
+
+.menu li {
+    list-style:none;
+    display:inline;
+    padding-right:20px;
+}
+
 .apage div {
     float:left;
 }
@@ -47,4 +58,39 @@ a img{
     width:200px;
     display:block;
     margin:10px 0 5px 0;
+}
+
+form, ul {
+   border:1px solid #ddd;
+   background:#eee;
+   padding:20px;
+}
+
+form input {
+   display:block;
+   margin-bottom:20px;
+}
+
+form label {
+   display:block;
+   margin-bottom:5px;
+}
+
+.aproduct {
+   background:#f9f9f9;
+   margin:10px 0;
+   padding:10px;
+}
+
+.aproduct input{
+   vertical-align:middle;
+   float:left;
+}
+
+.aproduct p {
+   font-weight: bold;
+}
+
+#theme_form input, #theme_form label {
+   float:left;
 }

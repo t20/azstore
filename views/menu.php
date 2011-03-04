@@ -7,4 +7,5 @@ if ($pages != null)
         echo "<a href='products/" . $page->id  . "'>" . $page->name . '</a>';
         echo '</li>';
     }
+    echo '</ul>';
 ?>

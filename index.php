@@ -1,5 +1,3 @@
-<?php include("header.php"); ?>
-
 <?php
 
 //$pageid = 1;
@@ -11,13 +9,18 @@ $scrap = (empty ($_GET['scrap'])) ? 1 : $_GET['scrap'];
 // else 
 //     echo 'Is set False';
 
-$products = get_products($scrap);
+?>
+
+<?php 
+
+include("header.php");
 
 echo '<hr/>';
 
+$products = get_products($scrap);
 if ($products)
 {
-include 'views/products.php';
+    include 'views/products.php';
 }
 ?>
 

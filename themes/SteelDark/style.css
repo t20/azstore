@@ -1,0 +1,64 @@
+.clear {
+    clear:both;
+}
+
+a img{
+    border:none;
+}
+
+body {
+   background:#222;
+}
+
+#wrapper {
+    background:#434343;
+    width:960px;
+    margin: 0 auto;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    color:#eee;
+    padding:10px;
+}
+
+#wrapper a{
+    color:#FFCC00;
+    text-decoration:none;
+}
+
+.menu {
+    padding:0;
+}
+
+.menu li {
+    list-style:none;
+    display:inline;
+    padding-right:20px;
+}
+
+#sitename {
+    font-size:30px;
+    margin:10px 0 20px;
+}
+
+#tagline {
+    font-size:16px;
+    margin:10px 0;
+}
+
+.aproduct{
+    display:block;
+    overflow:auto;
+    margin:10px 0;
+}
+
+.aproduct .product_title
+{
+    float:left;
+    margin:20px;
+}
+
+.aproduct a{
+    float:left;
+    width:200px;
+    text-align:center;    
+}

@@ -93,7 +93,7 @@ function get_settings()
     $select_settings_query = "select setting,value from settings where setting in ('sitename', 'tagline','username')";
     $result = db_query($select_settings_query);
     $settings = array();
-    while($row = mysql_fetch_assoc($result))
+    while($row = db_fetch_array($result))
     {
         $setting = $row['setting'];
         $settings[$setting] = $row['value'];
@@ -101,8 +101,6 @@ function get_settings()
     return $settings;
 }
 
-// get_products
-// Get products from database
 function get_products($page_id, $limit=10)
 {
     $select_asins_query = "select * from associations where pageid = '$page_id' limit $limit";
@@ -115,5 +113,99 @@ function get_products($page_id, $limit=10)
         $products[] = $product;
     }
     return $products;
+}
+
+function get_theme()
+{
+    $select_theme_query = "select value from settings where setting = 'theme'";
+    $result = db_query($select_theme_query);
+    while($row = mysql_fetch_assoc($result))
+    {
+        $theme = $row['value'];
+    }
+    return $theme;
+}
+
+// Code credits:
+// PHP login script
+// The login functionality has been modeled after sections of this code.
+function is_logged_in()
+{
+    session_start();
+
+    if (isset($_SESSION['HTTP_USER_AGENT']))
+    {
+        if ($_SESSION['HTTP_USER_AGENT'] != md5($_SERVER['HTTP_USER_AGENT']))
+        {
+            logout();
+            exit;
+        }
+    }
+
+    if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_name']) ) 
+    {
+    	if(isset($_COOKIE['user_id']) && isset($_COOKIE['user_key']))
+    	{
+        	$cookie_user_id  = filter($_COOKIE['user_id']);
+        	$rs_ctime = mysql_query("select `ckey`,`ctime` from `users` where `id` ='$cookie_user_id'") or die(mysql_error());
+        	list($ckey,$ctime) = mysql_fetch_row($rs_ctime);
+        	// coookie expiry
+        	if( (time() - $ctime) > 60*60*24*2) 
+        	{
+        		logout();
+        	}
+    	
+        	if( !empty($ckey) && is_numeric($_COOKIE['user_id']) && isUserID($_COOKIE['user_name']) && $_COOKIE['user_key'] == sha1($ckey))
+        	{
+        	    session_regenerate_id(); //against session fixation attacks.
+                $_SESSION['user_id'] = $_COOKIE['user_id'];
+                $_SESSION['user_name'] = $_COOKIE['user_name'];
+                $_SESSION['HTTP_USER_AGENT'] = md5($_SERVER['HTTP_USER_AGENT']);
+        	}
+        	else
+        	{
+        	    header("Location: login.php");
+        	    exit;
+        	    logout();
+        	}
+        }
+        else   
+        {
+        	header("Location: login.php");
+        	exit;
+        }
+    }
+}
+
+function logout()
+{
+    if(isset($_SESSION['user_id']) || isset($_COOKIE['user_id'])) 
+    {
+        mysql_query("update `users` 
+    			set `ckey`= '', `ctime`= '' 
+    			where `id`='$_SESSION[user_id]' OR  `id` = '$_COOKIE[user_id]'") or die(mysql_error());
+    }			
+
+    /************ Delete the sessions****************/
+    session_start();
+    $_SESSION = array();
+    session_unset();
+    session_destroy();
+
+    /* Delete the cookies*******************/
+    setcookie("user_id", '', time()-60*60*24*2, "/");
+    setcookie("user_name", '', time()-60*60*24*2, "/");
+    setcookie("user_key", '', time()-60*60*24*2, "/");
+
+    header("Location: login.php");
+}
+
+function isUserID($username)
+{
+	if (preg_match('/^[a-z\d_]{5,20}$/i', $username)) {
+		return true;
+	} else {
+		return false;
+	}
 }
 ?>

@@ -1,3 +1,4 @@
-// To do
-void session
-redirect to login page
+<?php  
+    include '../environment.php';
+    logout();
+?>

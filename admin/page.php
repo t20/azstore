@@ -22,17 +22,6 @@ if ($data['deletepage'] == 'Delete Page')
     header("Location: index.php?message=delete&pid=$pageid");
 }
 
-// Delete Products
-if($data['Delete'] == 'Delete')
-{
-    for ($i=0; $i<count($_POST['asin']);$i++)
-    {
-        $asin = $_POST['asin'][$i];
-        $asin_delete_query = "delete from associations where asin = '". $asin ."' and pageid = '". $pageid ."'";
-        db_query($asin_delete_query) or die("Insertion Failed:" . mysql_error());
-    }
-}
-
 // Update Page
 if($data['update'] == 'Update')
 {
@@ -78,29 +67,6 @@ while($tmp_asin = db_fetch_array($asins_query_result))
 <div id="wrapper">    
     <div class="admin_content">
         <h3><?php echo $page->name; ?></h3>
-        <div>
-            <h4>Products</h4>
-            <div>
-                <form action="page.php" method="post" accept-charset="utf-8">
-                    <?php
-                        if ($products)
-                        {
-                            foreach ($products as $product)
-                                {
-                                   echo '<div class="aproduct">';
-                                   echo '<input type="checkbox" name="asin[]" value="' . $product->asin . '" id="asin">';
-                                   echo $product->title;
-                                   echo '<a href = "' . $product->url . '"><img src = "' . $product->image . '"></a>';
-                                   echo '</div>';
-                                }
-                                echo '<input type="hidden" name="pid" value="'. $pageid .'" id="pid">';
-                        }
-                    ?>
-                <p><input type="submit" name="Delete" id="Delete" value="Delete"></p>
-            </form>
-            </div>
-        </div>
-        
         <h4>Edit page</h4>
             <form action="page.php" method="get" accept-charset="utf-8">
                 <label for="page_name">Page Name</label>
