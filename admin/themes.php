@@ -49,4 +49,7 @@ $selected = 'Default';
         }
     ?>
     <p><input type="submit" value="Select Theme" name="submit"></p>
+    <div class='clear'></div>
 </form>
+
+<?php include 'admin_footer.php'; ?>

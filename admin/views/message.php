@@ -1,8 +1,13 @@
-<div id="message">
+<div id="message_wrapper">
     <?php
-        foreach ($message as $m) 
+        if ($message)
         {
-	    	echo "$m <br>";
-	    }
+            echo '<div id="message">';
+                foreach ($message as $m) 
+                {
+        	    	echo "$m <br>";
+        	    }
+            echo '</div>';
+        }
     ?>
 </div>

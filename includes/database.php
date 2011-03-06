@@ -1,6 +1,10 @@
 <?php
 
-db_connect() or die('Unable to connect to database server!');
+$connected = db_connect();// or die('Unable to connect to database server!');
+if (!$connected)
+{
+   header("Location: install/index.php");
+}
 
 //You will need to replace the parameters below with the values for your database connection
 //server = the database server (usually localhost).
@@ -10,7 +14,7 @@ db_connect() or die('Unable to connect to database server!');
 function db_connect($server = DB_HOST, $username = DB_USER, $password = DB_PASSWORD, $database = DATABASE, $link = 'db_link') {
 global $$link;
 
-$$link = mysql_connect($server, $username, $password);
+$$link = @mysql_connect($server, $username, $password);
 
 if ($$link) mysql_select_db($database);
 

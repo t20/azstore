@@ -1,4 +1,5 @@
-<?php 
+<?php
+echo "<div id='products'>";
 foreach ($products as $product)
     {
        echo '<div class="aproduct">';
@@ -7,4 +8,5 @@ foreach ($products as $product)
        echo '<div class="clear"></div>';
        echo '</div>';
     }
- ?>
+echo "</div>";    
+?>

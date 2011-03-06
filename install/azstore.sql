@@ -88,7 +88,19 @@ CREATE TABLE `settings` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 
+DROP TABLE IF EXISTS `users`;
 
+CREATE TABLE `users` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `user_name` varchar(200) NOT NULL default '',
+  `user_email` varchar(220)  NOT NULL default '',
+  `pwd` varchar(220) NOT NULL default '',
+  `ckey` varchar(220) NOT NULL default '',
+  `ctime` varchar(220) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `user_email` (`user_email`),
+  FULLTEXT KEY `idx_search` (`user_email`,`user_name`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 
 

@@ -76,6 +76,28 @@ form label {
    margin-bottom:5px;
 }
 
+#pages #pages{
+    border:1px solid #434343;
+    padding:10px;
+}
+
+.apage {
+    height:30px;
+    padding:15px 0 5px 10px;
+}
+
+#pages .odd {
+    background:#eee;
+}
+
+#pages .even {
+    background:#ddd;
+}
+
+#products .odd {
+    background:#;
+}
+
 .aproduct {
    background:#f9f9f9;
    margin:10px 0;
@@ -93,4 +115,11 @@ form label {
 
 #theme_form input, #theme_form label {
    float:left;
+}
+
+#message {
+    border:1px solid #99FF00;
+    padding:10px;
+    margin:10px 0;
+    background:#99FF99;
 }

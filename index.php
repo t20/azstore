@@ -1,5 +1,25 @@
 <?php
 
+#TODO
+// Check config
+// Check for DB connection
+// Route to admin/install in failure
+
+include 'settings/config.php';
+
+if (!defined('CONFIG')) 
+{
+    header("Location: install/index.php");
+}
+
+include("header.php");
+
+$connected = db_connect();
+if (!$connected)
+{
+   header("Location: install/index.php");
+}
+
 //$pageid = 1;
 $scrap = (empty ($_GET['scrap'])) ? 1 : $_GET['scrap'];
 
@@ -13,7 +33,7 @@ $scrap = (empty ($_GET['scrap'])) ? 1 : $_GET['scrap'];
 
 <?php 
 
-include("header.php");
+
 
 echo '<hr/>';
 

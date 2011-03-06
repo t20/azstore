@@ -8,6 +8,7 @@ require_once ('../includes/functions.php');
 define('SETTINGS_FILE', '../settings/config.php');
 define('SETTINGS_TEMPLATE', 'settings.tpl');
 
+
 foreach($_POST as $key => $value) 
 {
 	$data[$key] = filter($value); //post variables are filtered.
@@ -101,7 +102,15 @@ if (isset($data['submit']))
     }
 }
 ?>
-<p>Installation</p>
+
+<html>
+<head>
+    <title>AZSTORE Installation</title>
+<link rel="stylesheet" href="../admin/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<div id="wrapper">
+<h1>AZSTORE Installation</h1>
 
 <?php
 include '../includes/message.php';
@@ -109,12 +118,22 @@ include '../includes/message.php';
 
 <?php 
     if(!$connected)
-    include 'dbform.php';
-    
-    if($connected && !$writable) 
-    {
-        echo '<textarea cols="80" rows="20" id="congif_file_content">' . $generated_template . "</textarea>";
+        include 'dbform.php';
+    else
+    {    
+        if($connected && !$writable) 
+        {
+            echo '<textarea cols="80" rows="20" id="congif_file_content">' . $generated_template . "</textarea>";
+        }
+        else
+        {
+            // Got the config file and able to connect to database, 
+            // Run the install now.
+            include 'install.php';
+            
+            echo '<a href = "init.php">Continue Installation</a>';
+        }
     }
 ?>
-
-<p>Continue Installation</p>
+</div>
+</body></html>

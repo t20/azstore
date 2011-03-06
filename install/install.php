@@ -10,8 +10,8 @@
         $results[] = db_query($query);
     }
     
-    foreach ($results as $result) {
-        echo 'Result : ' . $result;
-    }
+    // foreach ($results as $result) {
+    //         echo 'Result : ' . $result;
+    //     }
 
 ?>
