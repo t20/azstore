@@ -1,6 +1,4 @@
-AZStore is a amazon store builder. This software uses amazon cloudfusion for fetching the data from amazon.
-
-This is a project in progress and a lot more code needs to be checked in before a beta is released.
+AZStore is a amazon store listing builder. This software uses amazon cloudfusion for fetching the data from amazon.
 
 Keywords :Amazon store, php, shared hosting, script, open source, amazon store script
 
@@ -8,3 +6,21 @@ If you are interested in developing this software or want to share ideas, please
 
 Thanks.
 
+Installation:
+1. Download the software and upload it to the desired website or folder (e.g. yoursite.com ) via FTP.
+
+2. Go to your website or folder (e.g. yoursite.com ) in the browser and the installer will be launched.
+
+3. Fill in  your database, host, username and password. You should have already created a database (MYSQL) on your server. The prefix option is for future versions, you may skip it now.
+
+4. This is when the config file is created and also the database is populated with required tables. The software will try to create the file and also change the permissions of the config file to read only. Not all web servers permit this. You should verify the permissions for your /settings/config.php and set it to readonly (chmod 444 settings/config.php)
+
+5. Fill in the username, password and also your email. The remember password functionality is not built yet. So, you may want to remember your password. If you want to manually reset the password, you can use MySQL to do so. 'UPDATE USERS set pwd = sha1('yournewpassword')';
+
+6. Once you are logged into the dashboard, goto settings, fill in the sitename and tagline.
+
+7. By default, there is already a Home page. You may rename it by clicking on edit page. You may also add multiple pages
+
+8. You can now add products to your pages with the simple interface by clicking on add products.
+
+9. You can change the theme from your dashboard by clicking on themes. You can override the style with your theme stylesheet or create a new theme. Remember to add style.css in your theme folder.
