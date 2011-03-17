@@ -3,7 +3,7 @@
 // 10 November 2010
 // Author : Bharadwaj
 
-include '../config.php';
+include '../settings/config.php';
 if (defined('CONFIG')) 
 {
     header("Location: ../index.php");
