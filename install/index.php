@@ -3,6 +3,12 @@
 // 10 November 2010
 // Author : Bharadwaj
 
+include '../config.php';
+if (defined('CONFIG')) 
+{
+    header("Location: ../index.php");
+}
+
 require_once ('../includes/functions.php');
 
 define('SETTINGS_FILE', '../settings/config.php');
