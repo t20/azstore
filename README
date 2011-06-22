@@ -1,10 +1,15 @@
-AZStore is a amazon store listing builder. This software uses amazon cloudfusion for fetching the data from amazon.
+AZStore is a amazon store listing builder. Using AZStore, you can create multiple pages, each with a list of products from amazon. All products links can be linked to your amazon associate ID and you enjoy all the commissions. This software uses amazon cloudfusion for fetching the data from amazon. 
 
-Keywords :Amazon store, php, shared hosting, script, open source, amazon store script
+DEMO : http://diamondshopping.net
 
 If you are interested in developing this software or want to share ideas, please reach me via github.
 
 Thanks.
+
+
+Keywords:
+Amazon store, php, shared hosting, script, open source, amazon store script
+
 
 Installation:
 1. Download the software and upload it to the desired website or folder (e.g. yoursite.com ) via FTP.
